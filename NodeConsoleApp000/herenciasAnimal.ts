@@ -8,7 +8,7 @@ class Animal {
         if (value > 0 && value < 13) {
             this._mes = value;
         } else {
-            alert(`El valor del mes debe estar entre 1 y 31. Si no es correcto aparece 0`);
+            alert(`${this.nombre} El valor del MES debe estar entre 1 y 12. Si no es correcto aparece 0`);
             this._mes = 0;
             
         }  
@@ -21,7 +21,7 @@ class Animal {
         if (value > 0 && value < 32) {
             this._dia = value;
         } else {
-            alert(` ${this.nombre} El valor del día para debe estar entre 1 y 31. Si no es correcto aparece 0`);
+            alert(` ${this.nombre} El valor del DIA debe estar entre 1 y 31. Si no es correcto aparece 0`);
             this._dia = 0;
         }
     }
@@ -33,7 +33,7 @@ class Animal {
         if (value > 1999 && value < 2025) {
             this._year = value;
         } else {
-            alert(` ${this.nombre} El valor del año para debe estar entre 2000 y 2024. Si no es correcto aparece 0`);
+            alert(` ${this.nombre} El valor del AÑO debe estar entre 2000 y 2024. Si no es correcto aparece 0`);
             this._year = 0;
         }
     }
@@ -69,10 +69,11 @@ class Mamifero extends Animal {
         return this._mesesGestacion;
     }
     public set mesesGestacion(value: number) {
-        if (value > 0 && value < 18) {
+        if (value > 0 && value < 19) {
             
             this._mesesGestacion = value;
         } else {
+            alert(` ${this.nombre} El valor de los MESES de GESTACION debe estar entre 1 y 18. Si no es correcto aparece 0 <br/> Si no es correcto el valor de Masa/Gestacion sera "NaN"`);
             this._mesesGestacion = 0;
         }
     }
@@ -106,7 +107,7 @@ class Primate extends Mamifero {
         if (value > 100 && value < 2000) {
             this._masaCerebral = value;
         } else {
-            alert(` ${this.nombre} El valor de la Masa Cerebral para debe estar entre 100gr y 2000gr. Si no es correcto aparece 0`);
+            alert(` ${this.nombre} El valor de la MASA CEREBRAL debe estar entre 100 y 2000 (gr). Si no es correcto aparece 0 <br/> Si no es correcto el valor de Masa/Gestacion sera "NaN"`);
             this._masaCerebral = 0;
         }
     }
@@ -129,7 +130,7 @@ class Primate extends Mamifero {
         return `El Primate: ${this.nombre}, nacio el ${this.dia} de  ${this.mes.toString()} de ${this.year.toString()} y tiene una edad de ${this.dameEdad()}. Y nace despues de ${this.mesesGestacion} meses. con una proporcion de Masa cerebral/gestacion de ${this.proporcionMasa()}. <br />`;
     }
     proporcionMasa(): number {
-        return this.masaCerebral % this.mesesGestacion;
+        return this.masaCerebral / this.mesesGestacion;
     }
 }
 class Humano extends Primate {
@@ -156,10 +157,10 @@ class Humano extends Primate {
     }
 }
 
-let animal1 = new Animal(10, 6, 2021, "Ana");
+let animal1 = new Animal(10, 4, 2021, "Ana");
 let animal2 = new Mamifero(5, 10, 2012, "Alabastro", 4);
-let animal3 = new Primate(25, 13, 2088, "Madera", 13, 500);
-let animal4 = new Humano(5, 6, 2020, "Plastico", 9, 750, "Lopez Hernandez");
+let animal3 = new Primate(15, 12, 2008, "Madera", 6, 1500);
+let animal4 = new Humano(5, 1, 2020, "Plastico", 9, 750, "Lopez Hernandez");
 
 
 
